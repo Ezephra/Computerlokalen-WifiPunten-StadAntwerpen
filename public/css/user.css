@@ -1,0 +1,32 @@
+/* Om de footer beneden te houden */
+html {
+    height: 100%;
+}
+body {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template:
+        "header header header"
+        "main main main" 1fr
+        "footer footer footer";
+}
+header {grid-area: header;}
+main {grid-area: main;}
+footer {grid-area: footer;}
+
+p, label, input, a,
+.alert {
+    font-family: "Sun Antwerpen";
+}
+.registreren {
+    margin-top: 20px;
+}
+.geen-profiel {
+    margin-top: 20px;
+}
+@media (min-width: 575px) {
+	.geen-profiel {
+		margin-top: 0;
+	}
+}

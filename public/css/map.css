@@ -1,0 +1,95 @@
+html, body {
+	overflow-x: hidden;
+}
+#mapid {
+	position: relative;
+	width: 100%;
+	min-height: 80vh;
+	z-index: 1;
+}
+.fa-user {
+	color: white;
+}
+.custom .leaflet-popup-tip,
+.custom .leaflet-popup-content-wrapper {
+	background: white;
+	color: #0064b4;
+	font-family: "Sun Antwerpen";
+}
+span {
+	color: black;
+}
+
+.map-container {
+	position: relative;
+	width: 100%;
+	margin-top: 20px;
+}
+
+/* Map-menu */
+#mySidenav {
+	position: absolute;
+	height: 100%;
+	right: 0;
+	z-index: 5;
+	overflow-y: scroll;
+}
+.sidenav {
+	width: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: white;
+	overflow-y: scroll;
+	transition: 0.7s;
+	padding-top: 60px;
+}
+.openbtn {
+	position: absolute;
+	top: 0;
+	right: 15px;
+	z-index: 2;
+	cursor: pointer;
+	-webkit-filter: brightness(100%);
+	color: white;
+	background-color: #0064b4;
+	padding: 10px;
+	font-size: 30px;
+}
+.closebtn {
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-size: 36px;
+	cursor: pointer;
+	-webkit-filter: brightness(100%);
+	color: white;
+	background-color: #0064b4;
+	padding: 10px;
+	font-size: 30px;
+}
+.openbtn:hover,
+.closebtn:hover {
+	-webkit-filter: brightness(70%);
+	transition: all 250ms ease-in-out;
+}
+.openMenu {
+	width: 90%;
+}
+.closedMenu {
+	width: 0px;
+}
+
+/* De breedte van de menu op tablet */
+@media (min-width: 768px) {
+	.openMenu {
+		width: 60%;
+	}
+}
+
+/* De breedte van de menu op pc */
+@media (min-width: 1300px) {
+	.openMenu {
+		width: 40%;
+	}
+}

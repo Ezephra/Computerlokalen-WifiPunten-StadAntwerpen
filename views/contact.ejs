@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Contactformulier | Stad Antwerpen</title>
+
+	<!-- Favicons -->
+	<link rel="icon" type="image/png" sizes="32x32" href="https://cdn.antwerpen.be/core_branding_favicons/citizens/favicon-32x32.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="https://cdn.antwerpen.be/core_branding_favicons/citizens/apple-touch-icon.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="https://cdn.antwerpen.be/core_branding_favicons/citizens/favicon-16x16.png" />
+	<link rel="manifest" href="https://cdn.antwerpen.be/core_branding_favicons/citizens/site.webmanifest" />
+	<link rel="mask-icon" href="https://cdn.antwerpen.be/core_branding_favicons/citizens/safari-pinned-tab.svg"
+		color="#cf0039" />
+
+	<!-- Fonts inladen -->
+	<link rel="stylesheet" href="https://cdn.antwerpen.be/core_branding_scss/4.0.0/main.min.css" />
+
+	<!-- Bootstrap -->
+	<meta name="msapplication-TileColor" content="#cf0039" />
+	<meta name="theme-color" content="#cf0039" />
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="fonts/ionicons.min.css" />
+	<link rel="stylesheet" href="css/footer.css" />
+	<link rel="stylesheet" href="css/header.css" />
+
+	<!-- Eigen stylesheets -->
+	<link rel="stylesheet" href="css/contact.css" />
+
+	<!-- Font-Awesome voor de icoontjes -->
+	<script src="https://kit.fontawesome.com/767dacdd14.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+	<!-- Header -->
+	<header id="top">
+		<div class="o-header">
+			<div class="o-header__content-wrapper">
+				<div class="o-header__content">
+					<a href="#main-content" class="a-button-negative o-header__button o-header__button-skip">Skip to main
+						content</a>
+					<a href="/" class="o-header__logo">
+						<img src="images/logo_antwerpen.svg" alt="Officieel Logo Antwerpen">
+					</a>
+				</div>
+				<div class="o-header__menu-items">
+					<% if (!user) { %>
+					<a href="/login">
+						<button class="shadow-none a-button has-icon-left">
+							<span class="fa fa-user"></span>
+							Aanmelden
+						</button>
+					</a>
+					<% } else { %>
+					<a href="/logout">
+						<button class="shadow-none a-button has-icon-left a-button--secondary">
+							<span class="fa fa-user"></span>
+							Afmelden
+						</button>
+					</a>
+					<% } %>
+				</div>
+			</div>
+		</div>
+
+		<div id="banner">
+			<div class="m-image__copyright a-copyright" aria-haspopup="true">
+				<div class="a-copyright__sign"><span class="fa fa-copyright"></span></div>
+				<span class="a-copyright__label">Projectgroep-H</span>
+			</div>
+		</div>
+
+		<nav class="navbar navbar-light navbar-expand-md navigation-clean bg-light">
+			<button data-toggle="collapse" class="navbar-toggler shadow-none" data-target="#navcol-1" aria-controls="navcol-1"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon" id="navbar-toggler"
+					onclick="setNavbar()"></span>
+			</button>
+			<!-- Navigatie-items -->
+			<div class="row collapse navbar-collapse" id="navcol-1">
+				<ul class="nav navbar-nav ml-auto mx-auto">
+					<li class="nav-item" role="presentation">
+						<div class="nav-container">
+							<a id="nav-locatie" class="navigatie nav-link shadow-none" href="/">
+								<span class="nav-icon icon-map"></span>
+								<span class="navigatie-tekst">Locaties</span>
+							</a>
+						</div>
+					</li>
+					<li class="nav-item" role="presentation">
+						<div class="nav-container">
+							<a class="navigatie nav-link shadow-none" href="/navigatie">
+								<span class="nav-icon icon-search-standard"></span>
+								<span class="navigatie-tekst">Navigatie</span>
+							</a>
+						</div>
+					</li>
+					<li class="nav-item" role="presentation">
+						<div class="nav-container">
+							<a id="favorieten" class="navigatie nav-link shadow-none" href="/favorieten">
+								<span class="nav-icon icon-news"></span>
+								<span class="navigatie-tekst">Favorieten</span>
+							</a>
+						</div>
+					</li>
+					<li class="nav-item" role="presentation">
+						<div class="nav-container">
+							<a class="navigatie nav-link shadow-none" href="/contact">
+								<span class="nav-icon icon-contact"></span>
+								<span class="navigatie-tekst">Contact</span>
+							</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+    <!-- Contact formulier-->
+    <div id="contact-container">
+        <form class="a-form" id="contactForm">
+            <div class="a-input is-required">
+                <label class="a-input__label" for="required-text-field">Naam</label>
+                <input type="text" name="name" id="required-name" required />
+            </div>
+            <div class="a-input is-required">
+                <label class="a-input__label" for="required-text-field">E-mailadres</label>
+                <input type="email" name="email" id="required-email" required/>
+            </div>
+            <div class="a-input is-required">
+                <label class="a-input__label" for="required-text-field">Reden</label>
+                <input type="text" name="subject" id="required-subject" required/>
+            </div>
+            <div class="a-input is-required">
+                <label class="a-input__label" for="required-text-field">Beschrijving</label>
+                <textarea name="description" id="input-textarea" required></textarea>
+			</div>
+			<div class="a-input__checkbox">
+				<input type="checkbox" id="checkbox1" name="input-checkbox"  required>
+				<label for="checkbox1">Ik ga akkoord met de <a href="https://www.antwerpen.be/nl/info/5310f241aaa8a74f6c8b458d/a-stad-uw-privacy-en-hoe-gebruiken" class="has-icon-right">algemene voorwaarden</a></label>
+			</div>
+            <div class="submit-button">
+				<button class="a-button a-button--block u-xs-margin-bottom" id="contactVerzenden">Verzenden</button>
+			</div>
+        </form>
+    </div>
+
+	<!-- Footer-menu -->
+	<div class="footer-menu container-fluid text-center">
+		<div>
+			<h3>Contact met stad Antwerpen</h3>
+			<div id="contact" class="contact-container">
+				<a class="shadow-none" href="/contact"><img src="images/email_icon.PNG" alt="email icoon" />Contacteer
+					ons</a>
+			</div>
+		</div>
+		<div>
+			<h3>Schrijf u in op onze nieuwsbrief</h3>
+			<div class="nieuwsbrief-container">
+				<a class="shadow-none" href="https://www.antwerpen.be/nl/info/56cda8a3aba8a7f8158b4778" target="_blank">Antwerpen.be - nieuwsbrief </a>
+			</div>
+		</div>
+		<div>
+			<h3>Vind ons op</h3>
+			<a class="shadow-none" href="https://www.facebook.com/stad.antwerpen">
+				<img class="icon" src="images/facebook_icon.PNG" alt="facebook icoon" /></a>
+			<a class="shadow-none" href="https://twitter.com/Stad_Antwerpen">
+				<img class="icon" src="images/twitter_icon.PNG" alt="twitter icoon" /></a>
+			<a class="shadow-none" href="https://www.instagram.com/stad_antwerpen/">
+				<img class="icon" src="images/instagram_icon.PNG" alt="instagram icoon" /></a>
+			<a class="shadow-none" href="https://www.linkedin.com/company/stad-antwerpen/">
+				<img class="icon" src="images/linkedin_icon.PNG" alt="linkedin icoon" /></a>
+		</div>
+	</div>
+	<!-- Footer -->
+	<div class="footer-basic">
+		<footer>
+			<div>
+				<p class="copyright">© 2019-2020 Projectgroep H | <a href="/bronnen">Open Source</a> </p>
+			</div>
+			<a class="arrow shadow-none" href="#top"><img src="images/arrow.png" alt="" height="50px" /></a>
+		</footer>
+	</div>
+
+
+	<script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/contact.js"></script>
+
+</html>

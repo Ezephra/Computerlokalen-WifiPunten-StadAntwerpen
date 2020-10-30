@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Stad Antwerpen</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://cdn.antwerpen.be/core_branding_favicons/citizens/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://cdn.antwerpen.be/core_branding_favicons/citizens/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://cdn.antwerpen.be/core_branding_favicons/citizens/favicon-16x16.png" />
+    <link rel="manifest" href="https://cdn.antwerpen.be/core_branding_favicons/citizens/site.webmanifest" />
+    <link rel="mask-icon" href="https://cdn.antwerpen.be/core_branding_favicons/citizens/safari-pinned-tab.svg"
+        color="#cf0039" />
+
+    <!-- Fonts inladen -->
+    <link rel="stylesheet" href="https://cdn.antwerpen.be/core_branding_scss/4.0.0/main.min.css" />
+
+    <!-- Bootstrap -->
+    <meta name="msapplication-TileColor" content="#cf0039" />
+    <meta name="theme-color" content="#cf0039" />
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="fonts/ionicons.min.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/header.css" />
+
+    <!-- Eigen stylesheets -->
+    <link rel="stylesheet" href="css/user.css" />
+
+    <!-- Font-Awesome voor de icoontjes -->
+    <script src="https://kit.fontawesome.com/767dacdd14.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="top" class="o-header">
+        <div class="o-header__content-wrapper">
+            <div class="o-header__content">
+                <a href="#main-content" class="a-button-negative o-header__button o-header__button-skip">Skip to
+                    main content</a>
+                <a href="/" class="o-header__logo">
+                    <img src="images/logo_antwerpen.svg" alt="Officieel Logo Antwerpen">
+                </a>
+            </div>
+            <div class="o-header__menu-items">
+                <!-- Hier misschien inlog-button -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="o-main">
+        <div class="u-wrapper">
+            <div class="u-container u-margin-top-xx u-margin-bottom-lg">
+                <h1>Meld u aan</h1>
+                <% if (message) { %>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <%= message %>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                <% }; %>
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <form class="a-form" id="loginForm" action="/login" method="POST">
+                            <div class="a-input is-required">
+                                <label class="a-input__label" for="email">E-mailadres</label>
+                                <input type="email" name="email" id="email" required />
+                            </div>
+                            <div class="a-input is-required">
+                                <label class="a-input__label" for="password">Wachtwoord</label>
+                                <input type="password" name="password" id="password" required />
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6">
+                                    <button type="submit" class="a-button a-button--block u-xs-margin-bottom">Aanmelden</button>
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <p class="u-margin-bottom-xs geen-profiel">Nog geen profiel?</p>
+                                    <a href="/register">Maak dan een profiel aan</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-basic">
+        <div>
+            <p class="copyright">© 2019-2020 Projectgroep H | <a href="/bronnen">Open Source</a> </p>
+        </div>
+        <a class="arrow shadow-none" href="#top"><img src="images/arrow.png" alt="" height="50px" /></a>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+</html>

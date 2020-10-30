@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registreer nu! | Stad Antwerpen</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://cdn.antwerpen.be/core_branding_favicons/citizens/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://cdn.antwerpen.be/core_branding_favicons/citizens/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://cdn.antwerpen.be/core_branding_favicons/citizens/favicon-16x16.png" />
+    <link rel="manifest" href="https://cdn.antwerpen.be/core_branding_favicons/citizens/site.webmanifest" />
+    <link rel="mask-icon" href="https://cdn.antwerpen.be/core_branding_favicons/citizens/safari-pinned-tab.svg"
+        color="#cf0039" />
+
+    <!-- Fonts inladen -->
+    <link rel="stylesheet" href="https://cdn.antwerpen.be/core_branding_scss/4.0.0/main.min.css" />
+
+    <!-- Bootstrap -->
+    <meta name="msapplication-TileColor" content="#cf0039" />
+    <meta name="theme-color" content="#cf0039" />
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="fonts/ionicons.min.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/header.css" />
+
+    <!-- Eigen stylesheets -->
+    <link rel="stylesheet" href="css/user.css" />
+
+    <!-- Font-Awesome voor de icoontjes -->
+    <script src="https://kit.fontawesome.com/767dacdd14.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="top" class="o-header">
+        <div class="o-header__content-wrapper">
+            <div class="o-header__content">
+                <a href="#main-content" class="a-button-negative o-header__button o-header__button-skip">Skip to
+                    main content</a>
+                <a href="/" class="o-header__logo">
+                    <img src="images/logo_antwerpen.svg" alt="Officieel Logo Antwerpen">
+                </a>
+            </div>
+            <div class="o-header__menu-items">
+                <!-- Hier misschien inlog-button -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="u-wrapper">
+        <div class="u-container u-margin-top-xx u-margin-bottom-xx">
+
+            <!-- Registreer formulier-->
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <h4>Registreren</h4>
+                    <p>De gegevens in uw A-profiel, zoals naam en e-mailadres, worden nooit gedeeld met derden. De stad
+                        Antwerpen vindt privacy
+                        en de bescherming van uw gegevens erg belangrijk.</p>
+                </div>
+                <div class="col-xs-12 col-sm-8 u-bg-light">
+                    <% if (typeof errors != 'undefined') { %>
+                        <% errors.forEach(err => { %>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <%= err.message%>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                        <% }); %>
+                    <% } %>
+                    <form class="a-form" id="registerForm" action="/register" method="POST">
+                        <div class="a-input is-required">
+                            <label class="a-input__label" for="name">Naam</label>
+                            <input type="text" name="name" id="name" required/>
+                        </div>
+                        <div class="a-input is-required">
+                            <label class="a-input__label" for="email">E-mailadres</label>
+                            <input type="email" name="email" id="email" required />
+                        </div>
+                        <div class="a-input is-required">
+                            <label class="a-input__label" for="password">Wachtwoord</label>
+                            <input type="password" name="password" id="password" required />
+                            <p><small>Het wachtwoord moet minstens 6 tekens lang zijn</small></p>
+                        </div>
+                        <div class="a-input__checkbox">
+                            <input type="checkbox" id="voorwaarden-checkbox" name="voorwaarden" required>
+                            <label for="voorwaarden-checkbox">Ik ga akkoord met de <a
+                                    href="https://www.antwerpen.be/nl/info/5310f241aaa8a74f6c8b458d/a-stad-uw-privacy-en-hoe-gebruiken"
+                                    class="has-icon-right">algemene voorwaarden</a></label>
+                        </div>
+                        <button type="submit" class="registreren a-button has-icon-left">
+                            <span class="fa fa-user"></span>
+                            Registreren
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+        <!-- Footer -->
+    <footer class="footer-basic">
+        <div class="container">
+            <p class="copyright">© 2019-2020 Projectgroep H | <a href="/bronnen">Open Source</a> </p>
+        </div>
+        <a class="arrow shadow-none" href="#top"><img src="images/arrow.png" alt="" height="50px" /></a>
+    </footer>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</html>

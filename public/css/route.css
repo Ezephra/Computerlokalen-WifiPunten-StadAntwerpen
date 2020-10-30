@@ -1,0 +1,31 @@
+#mySideRoute {
+    width: 25%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+}
+#mapidRoute {
+	position: relative;
+    width: 100%;
+    min-height: 80vh;
+	z-index: 1;
+}
+.spinner-btn {
+    position: absolute;
+    z-index: 10;
+    font-family: "Sun Antwerpen";
+    background-color: #0060ad;
+    color: white;
+    opacity: 0.9 !important;
+}
+.spinner-border {
+    color: white;
+}
+.hidden {
+    display: none;
+}
+/* Paar stijlregels voor de routebeschrijving-box */
+.leaflet-routing-alt h2,
+.leaflet-routing-alt h3 {
+    color: #0060ad;
+}

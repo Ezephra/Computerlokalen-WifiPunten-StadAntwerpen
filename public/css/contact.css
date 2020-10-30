@@ -1,0 +1,21 @@
+#contact-container {
+    margin: 3% 3%;
+    padding: 20px;
+}
+.submit-button {
+    padding-top: 10px;
+}
+label, input, button {
+    font-family: "Sun Antwerpen";
+}
+/* Vanaf tablet-grootte */
+@media (min-width: 768px) {
+	#contact-container {
+    margin: 3% 10%;
+    }
+}
+@media (min-width: 1300px) {
+	#contact-container {
+    margin: 3% 15%;
+    }
+}

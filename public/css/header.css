@@ -1,0 +1,127 @@
+body {
+	overflow-x: hidden;
+}
+/* Styling van de toggler-btn */
+.navigation-clean .navbar-toggler {
+	border-color: none;
+	border-width: 0px;
+}
+
+.navigation-clean .navbar-toggler:hover,
+.navigation-clean .navbar-toggler:focus {
+	background: none;
+	outline: none;
+}
+.navigation-clean .navbar-toggler,
+.navbar-toggler-icon {
+	z-index: 10;
+}
+/* Styling voor een header in de huisstijl van Stad Antwerpen */
+.o-header {
+	position: relative;
+	z-index: 5;
+}
+.o-header__logo img {
+	width: 60px;
+	height: 60px;
+}
+#banner {
+	position: relative;
+	width: 100%;
+	height: 24rem;
+	background-image: url("../images/het_mas.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	min-height: 18rem;
+}
+.fa-copyright {
+	color: white;
+}
+.a-copyright__label {
+	color: white;
+	display: none;
+}
+/* HEADER */
+/* Op de telefoon --> bootstrap maakt een button */
+#navcol-1 > ul > li {
+	font-family: "Antwerpen Regular";
+	font-size: 18px;
+}
+.navigatie {
+	color: black !important;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+.navigatie:hover {
+	color: #0064b4 !important;
+	transition: none;
+}
+.nav-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.nav-container span {
+	font-size: 2rem;
+	margin-right: 20px;
+}
+.navigatie-tekst {
+	font-size: 22px !important;
+}
+#navcol-1 > ul {
+	display: flex;
+}
+.icon-map {
+	color: rgb(241, 138, 0);
+}
+.icon-search-standard {
+	color: rgb(108, 194, 74);
+}
+.icon-news {
+	color: rgb(207, 0, 57) ;
+}
+.icon-contact {
+	color: rgb(0, 100, 180);
+}
+/* Op de tablet */
+@media (min-width: 768px) {
+	.a-copyright__label {
+		display: initial;
+	}
+	.o-header__logo img {
+	width: 96px;
+	height: 96px;
+	}
+	.a-toggle {
+		display: none;
+	}
+	#navcol-1 > ul {
+		margin-top: -80px;
+		justify-content: space-around;
+	}
+	#navcol-1 > ul > li {
+		margin: 0px 50px 0px 0px;
+	}
+	.navigatie {
+		flex-direction: column;
+		justify-content: center;
+	}
+	.nav-container span:first-of-type {
+		font-size: 4rem;
+		background-color: white;
+		padding:  0 5px;
+	}
+	.navigatie-tekst {
+		font-size: 22px !important;
+	}
+}
+
+/* Op de pc */
+@media (min-width: 1100px) {
+	/* Stijlregel om de navbar rechts te tonen op de pc (als het moet) */
+	/*.mx-auto {
+		margin-right: 100px !important;
+	}*/
+}

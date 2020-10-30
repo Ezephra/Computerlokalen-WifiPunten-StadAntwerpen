@@ -1,0 +1,23 @@
+html {
+    height: 100%;
+}
+body {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template:
+        "header header header"
+        "main main main" 1fr
+        "footer footer footer";
+}
+header {grid-area: header;}
+main {grid-area: main;}
+footer {grid-area: footer;}
+
+h1 {
+    color: #cf0039;
+}
+table {
+    font-family: "Sun Antwerpen";
+}
+

@@ -1,0 +1,82 @@
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+/* Keuze-buttons */
+.keuze-container {
+	margin-top: 20px;
+}
+#wifipunten, #computerruimten {
+	font-family: "Antwerpen Regular";
+	font-size: 18px;
+	display: inline-block;
+	width: 200px;
+	padding: 5px 25px;
+	color: #0060ad;
+	background-color: white;
+	border: 2px solid #0060ad;
+}
+#wifipunten {
+	border-right: 1px;
+}
+#wifipunten:hover, #wifipunten:focus {
+	cursor: pointer;
+	background-color: #0060ad;
+	color: white;
+}
+#computerruimten:hover, #computerruimten:focus {
+	cursor: pointer;
+	background-color: #0060ad;
+	color: white;
+}
+.keuzeBtn-active {
+	background-color: #0060ad !important;
+	color: white !important;
+}
+
+/* Hoofding */
+.hoofding {
+	margin: 20px auto;
+	width: 90%;
+	text-align: center;
+}
+
+#heading {
+	font-size: 21px;
+	color: #cf0039;
+}
+#paragraph, .link-locaties, .vervolgtekst {
+	font-weight: bold;
+	display: inline;
+	color: #212529;
+	font-family: "Sun Antwerpen";
+}
+a.link-locaties {
+	color: #0060ad;
+	text-decoration: underline;
+}
+a.link-locaties:hover {
+	color: #0060ad;
+	text-decoration: underline;
+	cursor: pointer;
+}
+.sluitLocaties:hover {
+	color: white;
+}
+
+/* Op PC */
+@media (min-width: 1300px) {
+	.hoofding {
+		width: 50%;
+	}
+	#wifipunten, #computerruimten {
+		font-size: 20px;
+	}
+	#heading {
+		font-size: 25px;
+	}
+	#paragraph, .link-locaties, .vervolgtekst {
+		font-size: 16px;
+	}
+}

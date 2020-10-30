@@ -1,0 +1,123 @@
+.footer-basic {
+	height: 50px;
+	padding: 15px 0;
+	background-color: #000000;
+	color: #4b4c4d;
+	position: relative;
+}
+.footer-basic .copyright {
+	text-align: center;
+	font-size: 0.8333rem;
+	color: #aaa;
+	margin-top: 0px;
+}
+.footer-basic .copyright a {
+	color: #aaa;
+	text-decoration: underline;
+}
+
+.footer-basic .copyright a:hover {
+	color: white;
+	text-decoration: none;
+}
+.footer-basic img {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	-webkit-filter: brightness(100%);
+	display: block;
+	border: 0 none;
+}
+.footer-basic img:hover {
+	-webkit-filter: brightness(70%);
+	transition: all 250ms ease-in-out;
+}
+.footer-basic img:active .footer-basic img:focus {
+	outline: none !important;
+	box-shadow: none !important;
+}
+.copyright {
+	width: 90%;
+}
+
+/* Footer-menu */
+.footer-menu {
+	background-color: #282020;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.footer-menu h3 {
+	margin: 0px 0px 16px 0px;
+	padding-top: 10px;
+	font-size: 20px;
+	color: white;
+}
+.contact-container:hover {
+	-webkit-filter: brightness(70%);
+	transition: all 250ms ease-in-out;
+}
+.contact-container > a > img {
+	width: 48px;
+	height: 48px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.contact-container > a {
+	font-family: "Sun Antwerpen";
+	font-weight: 600;
+	font-size: 16px;
+	position: relative;
+	padding: 12px 0px;
+	color: white;
+	text-decoration: none;
+	display: block;
+	width: 100%;
+	background-color: #0060ad;
+	-webkit-filter: brightness(100%);
+}
+.nieuwsbrief-container > a {
+	font-family: "Sun Antwerpen";
+	font-weight: 600;
+	font-size: 16px;
+	background-color: #0060ad;
+	color: white;
+	text-decoration: none;
+	padding: 12px 0px;
+	display: block;
+	width: 100%;
+	-webkit-filter: brightness(100%);
+}
+.nieuwsbrief-container > a:hover {
+	-webkit-filter: brightness(70%);
+	transition: all 250ms ease-in-out;
+}
+.icon {
+	width: 48px;
+	height: 48px;
+	margin: 0px 12px 12px 0px;
+	-webkit-filter: brightness(100%);
+}
+.icon:hover {
+	-webkit-filter: brightness(70%);
+	transition: all 250ms ease-in-out;
+}
+
+/* Footer for tablets */
+@media (min-width: 768px) {
+	.copyright {
+		width: 100%;
+	}
+}
+/* Footer for PC */
+@media (min-width: 1100px) {
+	.copyright {
+		width: 100%;
+	}
+
+	/* De footer-menu naast elkaar */
+	.footer-menu {
+		display: flex;
+		justify-content: space-evenly;
+	}
+}

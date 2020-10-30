@@ -1,0 +1,43 @@
+{
+	"name": "it-project-19-20-h",
+	"version": "1.0.0",
+	"description": "IT Project 2019-2020 | Groep H",
+	"main": "server.js",
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"bootstrap": "4.4.1",
+		"connect-flash": "^0.1.1",
+		"dotenv": "^8.2.0",
+		"ejs": "^3.0.2",
+		"express": "4.17.1",
+		"express-session": "^1.17.1",
+		"geojson": "0.5.0",
+		"jquery": "^3.5.1",
+		"leaflet": "1.6.0",
+		"mongoose": "^5.9.14",
+		"node-fetch": "^2.6.1",
+		"nodemailer": "^6.4.6",
+		"nodemailer-express-handlebars": "^4.0.0",
+		"passport": "^0.4.1",
+		"passport-local": "^1.0.0",
+		"tripkit-leaflet": "^1.0.2"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.2"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node server.js",
+		"dev": "npx nodemon server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/AP-Elektronica-ICT/it-project-19-20-h.git"
+	},
+	"author": "Elias El Harrak Samadi",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/AP-Elektronica-ICT/it-project-19-20-h/issues"
+	},
+	"homepage": "https://github.com/AP-Elektronica-ICT/it-project-19-20-h#readme"
+}

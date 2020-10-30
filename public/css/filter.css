@@ -1,0 +1,113 @@
+/* Search-bars */
+.searchbar {
+	justify-content: center;
+}
+.searchbar > input {
+	border-radius: 0;
+    height: 46px;
+    border: 1px solid #bababa;
+}
+.searchbar > input::placeholder {
+    font-family: "Sun Antwerpen";
+    font-size: 16px;
+}
+.fa-search {
+	padding: 16px;
+	cursor: pointer;
+	background-color: #0060ad;
+	color: white;
+}
+.search-wifipunten, .search-webpunten {
+    width: 80% !important;
+}
+
+/* Filter-container */
+.search-container {
+    position: relative;
+    width: 100%;
+}
+.filtering-container {
+    width: calc(80% + 22px);
+    display: flex;
+    flex-direction: column;
+    z-index: 20;
+    background-color: white;
+    height: 250px;
+    overflow: scroll;
+    position: absolute;
+    left: 50%;
+    margin-left: calc(-40% - 11px);
+    border-top: 1px solid #bababa;
+    padding: 0;
+}
+.refining-container {
+    float: left;
+    padding: 0;
+}
+.refining-container > h3 {
+    border-bottom: 1px solid #bababa;
+    font-size: 19px;
+    padding: 10px;
+    padding-left: 10px;
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+.refining-container > h3:hover{
+    color: #0060ad;
+    cursor: pointer;
+}
+.checking-container {
+    font-family: "Sun Antwerpen";
+    position: relative;
+    left: 10px;
+}
+.verfijn-form {
+    position: relative;
+    left: 15px;
+    margin-top: 15px;
+}
+
+.filtered-data-container {
+    float: right;
+    text-decoration: none;
+}
+.item-location > h4 {
+    font-size: 19px;
+    color: #0060ad;
+}
+.webpunt-location > h4 {
+    font-size: 19px;
+    color: #0060ad;
+}
+.item-location, .webpunt-location {
+    border-bottom: 1px solid #bababa;
+    margin-top: 10px;
+}
+.item-location:first-of-type, .webpunt-location:first-of-type {
+    margin-top: 20px;
+}
+.item-location > p, .webpunt-location > p {
+    font-family: "Sun Antwerpen";
+}
+.webpunt-location p {
+    margin-bottom: 10px;
+}
+/* Vanaf een bepaalde grootte worden de containers naast elkaar getoond */
+@media (min-width: 768px) {
+    .filtering-container {
+        flex-direction: row;
+    }
+    .refining-container {
+        border-right: 1px solid #bababa;
+    }
+}
+/* Breedte van searchbar op een pc zetten op 50% */
+@media (min-width: 1100px) {
+    .search-wifipunten, .search-webpunten {
+        width: 50% !important;
+    }
+    .filtering-container {
+        width: calc(50% + 30px);
+        margin-left: calc(-25% - 15px);
+    }
+}

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>wifi openbaar | Stad Antwerpen</title>
+
+	<!-- Favicons -->
+	<link rel="icon" type="image/png" sizes="32x32"
+		href="https://cdn.antwerpen.be/core_branding_favicons/citizens/favicon-32x32.png" />
+	<link rel="apple-touch-icon" sizes="180x180"
+		href="https://cdn.antwerpen.be/core_branding_favicons/citizens/apple-touch-icon.png" />
+	<link rel="icon" type="image/png" sizes="16x16"
+		href="https://cdn.antwerpen.be/core_branding_favicons/citizens/favicon-16x16.png" />
+	<link rel="manifest" href="https://cdn.antwerpen.be/core_branding_favicons/citizens/site.webmanifest" />
+	<link rel="mask-icon" href="https://cdn.antwerpen.be/core_branding_favicons/citizens/safari-pinned-tab.svg"
+		color="#cf0039" />
+
+	<!-- Huisstijl Antwerpen inladen -->
+	<link rel="stylesheet" href="https://cdn.antwerpen.be/core_branding_scss/4.0.0/main.min.css" />
+
+	<!-- Bootstrap -->
+	<meta name="msapplication-TileColor" content="#cf0039" />
+	<meta name="theme-color" content="#cf0039" />
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="fonts/ionicons.min.css" />
+	<link rel="stylesheet" href="css/footer.css" />
+	<link rel="stylesheet" href="css/header.css" />
+
+	<script>
+		let myToken = "<%= accessToken %>";
+	</script>
+
+	<!-- Eigen stylesheets -->
+	<link rel="stylesheet" href="css/map.css" />
+	<link rel="stylesheet" href="css/hoofding.css" />
+	<link rel="stylesheet" href="css/filter.css"/>
+	<link rel="stylesheet" href="css/list.css"/>
+
+	<!-- Font-Awesome voor de icoontjes -->
+	<script src="https://kit.fontawesome.com/767dacdd14.js" crossorigin="anonymous"></script>
+
+	<!-- Leaflet-bibliotheek inladen -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+		integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+		crossorigin="" />
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+		integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+		crossorigin=""></script>
+
+<body>
+	<!-- Header -->
+	<header id="top">
+		<div class="o-header">
+			<div class="o-header__content-wrapper">
+				<div class="o-header__content">
+					<a href="#main-content" class="a-button-negative o-header__button o-header__button-skip">Skip to main
+						content</a>
+					<a href="/" class="o-header__logo">
+						<img src="images/logo_antwerpen.svg" alt="Officieel Logo Antwerpen">
+					</a>
+				</div>
+				<div class="o-header__menu-items">
+					<% if (!user) { %>
+					<a href="/login">
+						<button class="shadow-none a-button has-icon-left">
+							<span class="fa fa-user"></span>
+							Aanmelden
+						</button>
+					</a>
+					<% } else { %>
+						<a href="/logout">
+							<button class="shadow-none a-button has-icon-left a-button--secondary">
+								<span class="fa fa-user"></span>
+								Afmelden
+							</button>
+						</a>
+					<% } %>
+				</div>
+			</div>
+		</div>
+
+		<div id="banner">
+			<div class="m-image__copyright a-copyright" aria-haspopup="true">
+				<div class="a-copyright__sign"><span class="fa fa-copyright"></span></div>
+				<span class="a-copyright__label">Projectgroep-H</span>
+			</div>
+		</div>
+
+		<nav class="navbar navbar-light navbar-expand-md navigation-clean bg-light">
+			<button data-toggle="collapse" class="navbar-toggler shadow-none" data-target="#navcol-1" aria-controls="navcol-1"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon" id="navbar-toggler"
+					onclick="setNavbar()"></span>
+			</button>
+			<!-- Navigatie-items -->
+			<div class="row collapse navbar-collapse" id="navcol-1">
+				<ul class="nav navbar-nav ml-auto mx-auto">
+					<li class="nav-item" role="presentation">
+						<div class="nav-container">
+							<a id="nav-locatie" class="navigatie nav-link shadow-none" href="/">
+								<span class="nav-icon icon-map"></span>
+								<span class="navigatie-tekst">Locaties</span>
+							</a>
+						</div>
+					</li>
+					<li class="nav-item" role="presentation">
+						<div class="nav-container">
+							<a class="navigatie nav-link shadow-none" href="/navigatie">
+								<span class="nav-icon icon-search-standard"></span>
+								<span class="navigatie-tekst">Navigatie</span>
+							</a>
+						</div>
+					</li>
+					<li class="nav-item" role="presentation">
+						<div class="nav-container">
+							<a id="favorieten" class="navigatie nav-link shadow-none" href="/favorieten">
+								<span class="nav-icon icon-news"></span>
+								<span class="navigatie-tekst">Favorieten</span>
+							</a>
+						</div>
+					</li>
+					<li class="nav-item" role="presentation">
+						<div class="nav-container">
+							<a class="navigatie nav-link shadow-none" href="/contact">
+								<span class="nav-icon icon-contact"></span>
+								<span class="navigatie-tekst">Contact</span>
+							</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<!-- Keuze-buttons -->
+	<div id="keuzeBtn" class="text-center keuze-container">
+		<a> <span id="wifipunten">Wifipunten</span><span id="computerruimten">Webpunten</span> </a>
+	</div>
+
+	<!-- Tekst -->
+	<div id="hoofding" class="hoofding">
+		<h1 id="heading">
+			<!-- Via js -->
+		</h1>
+		<p id="paragraph">
+			<!-- Via js -->
+		</p><a href="#heading" class="link-locaties hidden">Klik hier</a> <span class="vervolgtekst">
+			<!-- Via js --></span>
+	</div>
+
+	<!-- Search-bar Wifipunten -->
+	<div class="container-fluid search-container">
+		<form id="search-wifipunten" class="form-inline searchbar hidden a-input" action="#hoofding" method="GET">
+			<input class="form-control form-control-sm shadow-none search-wifipunten" type="text"
+				placeholder="Zoek wifipunten..." aria-label="Search">
+			<span><a href="#hoofding"><i class="fas fa-search" aria-hidden="true"></i></a></span>
+		</form>
+
+		<div id="filtering-container-wifipunten" class="container-fluid filtering-container hidden">
+			<!-- Container voor filteren van data (wifipunten) -->
+			<div class="container refining-container">
+				<h3>Verfijn zoekresultaten</h3>
+				<form class="verfijn-form">
+					<div class="form-group checking-container">
+						<div class="a-input__checkbox">
+							<input type="checkbox" id="locatieNaam" name="locatie-checkbox" checked>
+							<label for="locatieNaam">Locaties<span id="locatie-counter"></span></label>
+						</div>
+						<div class="a-input__checkbox">
+							<input type="checkbox" id="gemeente" name="gemeente-checkbox">
+							<label for="gemeente">Gemeente<span id="gemeente-counter"></span></label>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- Container ernaast voor gefilterde data -->
+			<div class="container filtered-data-container">
+				<!-- Via JS -->
+			</div>
+		</div>
+	</div>
+
+	<!-- Search-bar Webpunten  -->
+	<div class="container-fluid search-container">
+		<form id="search-webpunten" class="form-inline searchbar hidden a-input" action="#hoofding" method="GET">
+			<input class="form-control form-control-sm w-50 shadow-none search-webpunten" type="text"
+				placeholder="Zoek webpunten..." aria-label="Search">
+			<span><a href="#hoofding"><i class="fas fa-search" aria-hidden="true"></i></a></span>
+		</form>
+
+		<div id="filtering-container-webpunten" class="container-fluid filtering-container hidden">
+			<!-- Container voor filteren van data (webpunten) -->
+			<div class="container refining-container">
+				<h3>Verfijn zoekresultaten</h3>
+				<form class="verfijn-form">
+					<div class="form-group checking-container">
+						<div class="a-input__checkbox">
+							<input type="checkbox" id="naam-webpunt" name="naam-webpunt-checkbox" checked>
+							<label for="naam-webpunt">Locaties<span id="web-locatie-counter"></span></label>
+						</div>
+						<div class="a-input__checkbox">
+							<input type="checkbox" id="gemeente-webpunt" name="gemeente-webpunt-checkbox">
+							<label for="gemeente-webpunt">Gemeente<span id="web-gemeente-counter"></span></label>
+						</div>
+						<div class="a-input__checkbox">
+							<input type="checkbox" id="begeleiding" name="begeleiding-checkbox">
+							<label for="begeleiding">Webpunt met begeleiding<span id="begeleiding-counter"></span></label>
+						</div>
+						<div class="a-input__checkbox">
+							<input type="checkbox" id="gratis" name="gratis-checkbox">
+							<label for="gratis">Gratis webpunt<span id="gratis-counter"></span></label>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- Container ernaast voor gefilterde data -->
+			<div class="container filtered-webpunten-container">
+				<!-- Via JS -->
+			</div>
+		</div>
+	</div>
+
+	<!-- Map met menu -->
+	<div>
+		<div class="row">
+			<div class="map-container col-md-12">
+				<div id="mapid"></div>
+				<i id="open" class="openbtn fas fa-arrow-left hidden" onclick="openNav()"></i>
+
+				<div id="mySidenav" class="sidenav">
+					<i class="closebtn fas fa-arrow-right" onclick="closeNav()"></i>
+					<!-- LIJST MET ALLE WIFIPUNTEN -->
+					<div class="list-wifiPoints hidden ">
+						<ul class="a-list a-list--lined">
+							<% wifiPoints.forEach(point => { %>
+							<li>
+								<a href="#heading" class="locatie-link shadow-none" target="_self"
+									onclick="openCloseDetails(this)"><%= point.attributes.LOCATIE %>
+									<span class="fa fa-chevron-down detailsArrow"></span></a>
+							</li>
+							<div class="locatie-info hidden">
+								<span class="adres"><i class="fas fa-map-marker-alt"></i><%=point.attributes.STRAAT %> <%= point.attributes.HUISNR%>,
+									<%= point.attributes.POSTCODE %> <%=point.attributes.GEMEENTE %></span>
+								<% if (user) { %>
+								<span class="favoriet-wifi"><i class="fas fa-star"></i>Voeg toe aan favorieten</span>
+								<% } %>
+								<span class="route-link-wifi"><i class="fas fa-random"></i><a href="/navigatie">Routebeschrijving</a></span>
+							</div>
+							<% }); %>
+						</ul>
+					</div>
+
+					<!-- LIJST MET ALLE WEBPUNTEN -->
+					<div class="list-webPoints hidden">
+						<ul class="a-list a-list--lined">
+							<% computerRooms.forEach(room => { %>
+							<li>
+								<a href="#heading" onclick="openCloseDetails(this)"><%= room.attributes.NAAM %>
+									<span class="fa fa-chevron-down detailsArrow"></span></a>
+							</li>
+							<div class="locatie-info hidden">
+								<span class="adres"><i class="fas fa-map-marker-alt"></i><%=room.attributes.STRAATNAAM %> <%= room.attributes.HUISNUMMER%>,
+									<%= room.attributes.POSTCODE %> <%=room.attributes.DISTRICT %></span>
+								<% if (user) { %>
+								<span class="favoriet-web"><i class="fas fa-star"></i>Voeg toe aan favorieten</span>
+								<% } %>
+								<span class="route-link-web"><i class="fas fa-random"></i><a href="/navigatie">Routebeschrijving</a></span>
+							</div>
+							<% }); %>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer-menu -->
+	<div class="footer-menu container-fluid text-center">
+		<div>
+			<h3>Contact met stad Antwerpen</h3>
+			<div id="contact" class="contact-container">
+				<a class="shadow-none" href="/contact"><img src="images/email_icon.PNG" alt="email icoon" />Contacteer
+					ons</a>
+			</div>
+		</div>
+		<div>
+			<h3>Schrijf u in op onze nieuwsbrief</h3>
+			<div class="nieuwsbrief-container">
+				<a class="shadow-none" href="https://www.antwerpen.be/nl/info/56cda8a3aba8a7f8158b4778" target="_blank">Antwerpen.be - nieuwsbrief </a>
+			</div>
+		</div>
+		<div>
+			<h3>Vind ons op</h3>
+			<a class="shadow-none" href="https://www.facebook.com/stad.antwerpen">
+				<img class="icon" src="images/facebook_icon.PNG" alt="facebook icoon" /></a>
+			<a class="shadow-none" href="https://twitter.com/Stad_Antwerpen">
+				<img class="icon" src="images/twitter_icon.PNG" alt="twitter icoon" /></a>
+			<a class="shadow-none" href="https://www.instagram.com/stad_antwerpen/">
+				<img class="icon" src="images/instagram_icon.PNG" alt="instagram icoon" /></a>
+			<a class="shadow-none" href="https://www.linkedin.com/company/stad-antwerpen/">
+				<img class="icon" src="images/linkedin_icon.PNG" alt="linkedin icoon" /></a>
+		</div>
+	</div>
+	<!-- Footer -->
+	<div class="footer-basic">
+		<footer>
+			<div>
+				<p class="copyright">© 2019-2020 Projectgroep H | <a href="/bronnen">Open Source</a> </p>
+			</div>
+			<a class="arrow shadow-none" href="#top"><img src="images/arrow.png" alt="" height="50px" /></a>
+		</footer>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script>
+		let wifiPoints = <%- wifiPointsStringified -%>;
+		let computerRooms = <%- computerRoomsStringified -%>;
+	</script>
+	<script src="js/algemeen.js"></script>
+	<script src="js/map.js"></script>
+  	<script src="js/navbar.js"></script>
+	<script src="js/filter.js"></script>
+</body>
+
+</html>
+
